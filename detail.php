@@ -610,7 +610,7 @@ $config = MercadoPago\SDK::config();
                                 );
 
                                 $preference->external_reference = 'ale.maldo097@gmail.com';
-                                $preference->notification_url = '//maldo-e-commerce-php.herokuapp.com/webhook.php';
+                                //$preference->notification_url = '//maldo-e-commerce-php.herokuapp.com/webhook.php';
 
                                 $preference->save();
 
