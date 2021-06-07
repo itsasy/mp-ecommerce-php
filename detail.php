@@ -538,10 +538,10 @@ $config = MercadoPago\SDK::config();
                                         </h3>
                                     </div>
                                     <h3>
-                                        <?php echo $_POST['unit'] ?>
+                                        <?php echo $_POST['price'] ?>
                                     </h3>
                                     <h3>
-                                        <?php echo "$" . $_POST['price'] ?>
+                                        <?php echo "$" . $_POST['unit'] ?>
                                     </h3>
                                 </div>
                                 <?php
@@ -567,19 +567,6 @@ $config = MercadoPago\SDK::config();
 
                                 $preference->payer = $payer;
 
-                                //Building an shipments
-                                $shipments = new MercadoPago\Shipments();
-                                $shipments->receiver_address = array("zip_code" => "03940",
-                                    "street_name" => "Cuesta Miguel Armendáriz",
-                                    "street_number" => 1004,
-                                    "floor" => 16,
-                                    "apartment" => "C"
-                                );
-
-                                $preference->shipments = $shipments;
-
-
-                                // Building an item
                                 $item = new MercadoPago\Item();
 
                                 $item->id = '1234';
