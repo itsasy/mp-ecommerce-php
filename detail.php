@@ -598,9 +598,9 @@ $config = MercadoPago\SDK::config();
                                 //print_r($preference);
                                 //url to back
                                 $preference->back_urls = array(
-                                    'success' => '//mp-ecommerce-php.test/response.php?id=success',
-                                    'failure' => '//mp-ecommerce-php.test/response.php?id=failure',
-                                    'pending' => '//mp-ecommerce-php.test/response.php?id=pending',
+                                    'success' => '//maldo-e-commerce-php.herokuapp.com/response.php?id=success',
+                                    'failure' => '//maldo-e-commerce-php.herokuapp.com/response.php?id=failure',
+                                    'pending' => '//maldo-e-commerce-php.herokuapp.com/response.php?id=pending',
                                 );
 
                                 $preference->auto_return = 'approved';
@@ -618,7 +618,7 @@ $config = MercadoPago\SDK::config();
 
                                 //Extern reference
                                 $preference->external_reference = 'test_user_62650056@testuser.com';
-                                //$preference->notification_url = '//mp-ecommerce-php.test/webhook.php';
+                                $preference->notification_url = '//maldo-e-commerce-php.herokuapp.com/webhook.php';
 
                                 $preference->save();
 
