@@ -1,11 +1,11 @@
 <?php
 
 require 'vendor/autoload.php';
-$AccessToken = 'APP_USR-4335148005852522-052619-95473cc66defd01d3d128e8a87db7577-765170685';
+$AccessToken = 'APP_USR-8208253118659647-112521-dd670f3fd6aa9147df51117701a2082e-677408439';
 MercadoPago\SDK::initialize();
 MercadoPago\SDK::setAccessToken($AccessToken);
 MercadoPago\SDK::setPlatformId("PLATFORM_ID");
-MercadoPago\SDK::setIntegratorId("dev_24c65fb163bf11ea96500242ac130004");
+MercadoPago\SDK::setIntegratorId("dev_2e4ad5dd362f11eb809d0242ac130004");
 MercadoPago\SDK::setCorporationId("CORPORATION_ID");
 $config = MercadoPago\SDK::config();
 
@@ -538,38 +538,34 @@ $config = MercadoPago\SDK::config();
                                         </h3>
                                     </div>
                                     <h3>
-                                        <?php echo $_POST['price'] ?>
+                                        <?php echo $_POST['unit'] ?>
                                     </h3>
                                     <h3>
-                                        <?php echo "$" . $_POST['unit'] ?>
+                                        <?php echo "$" . $_POST['price'] ?>
                                     </h3>
                                 </div>
                                 <?php
-
-                                //Building a reference
                                 $preference = new MercadoPago\Preference();
 
-                                //Building an payer
                                 $payer = new MercadoPago\Payer();
                                 $payer->name = 'Lalo';
                                 $payer->surname = 'Landa';
-                                $payer->email = 'test_user_22330677@testuser.com';
+                                $payer->email = 'test_user_46542185@testuser.com';
                                 $payer->phone = array(
-                                    "area_code" => "51",
-                                    "number" => "933530122"
+                                    "area_code" => "52",
+                                    "number" => "5549737300"
                                 );
                                 $payer->identification = array(
                                     "type" => "DNI",
-                                    "number" => "765168152"
+                                    "number" => "22334445"
                                 );
                                 $payer->address = array(
-                                    "street_name" => "Cuesta Miguel Armendáriz",
-                                    "street_number" => 1004,
-                                    "zip_code" => "11020"
+                                    "street_name" => "22334445",
+                                    "street_number" => 1602,
+                                    "zip_code" => "03940"
                                 );
 
                                 $preference->payer = $payer;
-
 
                                 //Building an shipments
                                 $shipments = new MercadoPago\Shipments();
@@ -588,15 +584,13 @@ $config = MercadoPago\SDK::config();
 
                                 $item->id = '1234';
                                 $item->title = $_POST['title'];
-                                $item->description = 'Dispositivo móvil para la tienda de e-commerce';
-                                $item->quantity = 2;
-                                $item->unit_price = 10;
+                                $item->description = 'Dispositivo móvil de Tienda e-commerce';
+                                $item->quantity = 1;
+                                $item->unit_price = $_POST['price'];
                                 $item->picture_url = $_SERVER['HTTP_REFERER'] . $_POST['img'];
 
                                 $preference->items = array($item);
 
-                                //print_r($preference);
-                                //url to back
                                 $preference->back_urls = array(
                                     'success' => '//maldo-e-commerce-php.herokuapp.com/response.php?id=success',
                                     'failure' => '//maldo-e-commerce-php.herokuapp.com/response.php?id=failure',
@@ -605,7 +599,6 @@ $config = MercadoPago\SDK::config();
 
                                 $preference->auto_return = 'approved';
 
-                                //Exclude pay methods
                                 $preference->payment_methods = array(
                                     'excluded_payment_methods' => array(
                                         array('id' => 'amex')
@@ -616,19 +609,16 @@ $config = MercadoPago\SDK::config();
                                     'installments' => 6
                                 );
 
-                                //Extern reference
-                                $preference->external_reference = 'test_user_62650056@testuser.com';
+                                $preference->external_reference = 'ale.maldo097@gmail.com';
                                 $preference->notification_url = '//maldo-e-commerce-php.herokuapp.com/webhook.php';
 
                                 $preference->save();
 
                                 echo "<a href='$preference->init_point'>
-                                    <button type='button' class='mercadopago-button' formmethod='post'>Pagar </button>
-                                    </a>";
+  <button type='button' class='mercadopago-button' formmethod='post'>Pagar la compra</button>
+</a>";
                                 ?>
-                                <!--
-                                <button type="submit" class="mercadopago-button" formmethod="post">Pagar</button>
-                                -->
+
                             </div>
                         </div>
                     </div>

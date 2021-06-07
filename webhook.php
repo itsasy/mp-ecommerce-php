@@ -2,7 +2,7 @@
 require 'vendor/autoload.php';
 
 /* Token */
-$accesToken = 'APP_USR-4335148005852522-052619-95473cc66defd01d3d128e8a87db7577-765170685';
+$accesToken = 'APP_USR-8208253118659647-112521-dd670f3fd6aa9147df51117701a2082e-677408439';
 MercadoPago\SDK::setAccessToken($accesToken);
 
 /* Get and store response */
