@@ -23,12 +23,12 @@ $config = MercadoPago\SDK::config();
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="format-detection" content="telephone=no">
 
-    <script src="https://www.mercadopago.com/v2/security.js" view="detail.php"></script>
-
     <script
             src="https://code.jquery.com/jquery-3.4.1.min.js"
             integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
             crossorigin="anonymous"></script>
+
+    <script src="https://www.mercadopago.com/v2/security.js" view="detail.php"></script>
 
     <link rel="stylesheet" href="./assets/category-landing.css" media="screen, print">
 
@@ -572,16 +572,16 @@ $config = MercadoPago\SDK::config();
                                 $item->id = '1234';
                                 $item->title = $_POST['title'];
                                 $item->description = 'Dispositivo móvil de Tienda e-commerce';
-                                $item->quantity = 1;
+                                $item->quantity = $_POST['unit'];
                                 $item->unit_price = $_POST['price'];
                                 $item->picture_url = $_SERVER['HTTP_REFERER'] . $_POST['img'];
 
                                 $preference->items = array($item);
 
                                 $preference->back_urls = array(
-                                    'success' => '//maldo-e-commerce-php.herokuapp.com/response.php?id=success',
-                                    'failure' => '//maldo-e-commerce-php.herokuapp.com/response.php?id=failure',
-                                    'pending' => '//maldo-e-commerce-php.herokuapp.com/response.php?id=pending',
+                                    'success' => 'https://maldo-e-commerce-php.herokuapp.com/response.php?id=success',
+                                    'failure' => 'https://maldo-e-commerce-php.herokuapp.com/response.php?id=failure',
+                                    'pending' => 'https://maldo-e-commerce-php.herokuapp.com/response.php?id=pending',
                                 );
 
                                 $preference->auto_return = 'approved';
@@ -597,13 +597,11 @@ $config = MercadoPago\SDK::config();
                                 );
 
                                 $preference->external_reference = 'ale.maldo097@gmail.com';
-                                $preference->notification_url = '//maldo-e-commerce-php.herokuapp.com/webhook.php';
+                                $preference->notification_url = 'https://maldo-e-commerce-php.herokuapp.com/webhook.php';
 
                                 $preference->save();
 
-                                echo "<a href='$preference->init_point'>
-  <button type='button' class='mercadopago-button' formmethod='post'>Pagar la compra</button>
-</a>";
+                                echo "<a href='$preference->init_point'> <button type='button' class='mercadopago-button' formmethod='post'>Pagar la compra</button></a>";
                                 ?>
 
                             </div>
