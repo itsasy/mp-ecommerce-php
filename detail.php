@@ -560,7 +560,7 @@ $config = MercadoPago\SDK::config();
                                     "number" => "22334445"
                                 );
                                 $payer->address = array(
-                                    "street_name" => "22334445",
+                                    "street_name" => "Insurgentes Sur",
                                     "street_number" => 1602,
                                     "zip_code" => "03940"
                                 );
