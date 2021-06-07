@@ -538,10 +538,10 @@ $config = MercadoPago\SDK::config();
                                         </h3>
                                     </div>
                                     <h3>
-                                        <?php echo $_POST['price'] ?>
+                                        <?php echo $_POST['unit'] ?>
                                     </h3>
                                     <h3>
-                                        <?php echo "$" . $_POST['unit'] ?>
+                                        <?php echo "$" . $_POST['price'] ?>
                                     </h3>
                                 </div>
                                 <?php
@@ -597,7 +597,7 @@ $config = MercadoPago\SDK::config();
                                 );
 
                                 $preference->external_reference = 'ale.maldo097@gmail.com';
-                                //$preference->notification_url = '//maldo-e-commerce-php.herokuapp.com/webhook.php';
+                                $preference->notification_url = '//maldo-e-commerce-php.herokuapp.com/webhook.php';
 
                                 $preference->save();
 
