@@ -588,7 +588,7 @@ $config = MercadoPago\SDK::config();
 
                                 $preference->payment_methods = array(
                                     'excluded_payment_methods' => array(
-                                        array('id' => 'amex')
+                                        array('id' => 'diners')
                                     ),
                                     'excluded_payment_types' => array(
                                         array('id' => 'atm')
@@ -597,7 +597,7 @@ $config = MercadoPago\SDK::config();
                                 );
 
                                 $preference->external_reference = 'ale.maldo097@gmail.com';
-                                $preference->notification_url = 'https://maldo-e-commerce-php.herokuapp.com/webhook.php';
+                                $preference->notification_url = 'https://hookb.in/MqM9KKLwW2TBKK6OwZx7';
 
                                 $preference->save();
 
