@@ -8,6 +8,7 @@ MercadoPago\SDK::setAccessToken($accessToken);
 /* Get and store response */
 $body = @file_get_contents('php://input');
 $data = json_decode($body);
+
 file_put_contents("notifications/{$data->id}.json", $body);
 
 switch ($data->type) {
