@@ -597,7 +597,7 @@ $config = MercadoPago\SDK::config();
                                 );
 
                                 $preference->external_reference = 'ale.maldo097@gmail.com';
-                                $preference->notification_url = 'https://hookb.in/W1M6PEq0KxuMooQeE9Pn';
+                                $preference->notification_url = 'https://hookb.in/MqM9KKLwW2TBKK6OwZx7';
 
                                 $preference->save();
 
